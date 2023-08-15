@@ -11,7 +11,7 @@ if &term =~ "xterm"
     " REPLACE mode
     let &t_SR = "\<Esc>[3 q" . "\<Esc>]12;red\x7"
     " NORMAL mode
-    let &t_EI = "\<Esc>[2 q" . "\<Esc>]13;green\x7"
+    let &t_EI = "\<Esc>[2 q" . "\<Esc>]12;green\x7"
 endif
 " 1 -> blinking block  闪烁的方块
 " 2 -> solid block  不闪烁的方块
@@ -31,3 +31,26 @@ map - :vsc Edit.UncommentSelection <return>
 map <C-o> :vsc View.NavigateBackward<CR>
 map <C-i> :vsc View.NavigateForward<CR>
 nnoremap gf :vsc Edit.Find<CR>
+set ignorecase
+" gS prefix is added for ViEmu, no use for VsVim AFAIK.
+"VsVim and ViEmu are disabled until PeasyMotion finishes
+
+"Whole viewport jump-to-word beginning mode:
+nnoremap <Space> gS:vsc Tools.InvokePeasyMotion<CR>
+
+"Select text from current caret position to desired jump label (fwd and reverse directions supported)
+nmap ;; gS:vsc Tools.InvokePeasyMotionTextSelect<CR>
+
+"Jump to word beginning in current line
+nmap zw gS:vsc Tools.InvokePeasyMotionLineJumpToWordBegining<CR>
+"Jump to word ending in current line
+nmap ze gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
+
+"Jump to any open document tab
+"nmap ;w gS:vsc Tools.InvokePeasyMotionJumpToDocumentTab<CR>
+
+"Jump to line beginning:
+"nmap ;l gS:vsc Tools.InvokePeasyMotionJumpToLineBegining<CR>
+
+"Two char search mode:
+"nmap ;c gS:vsc Tools.InvokePeasyMotionTwoCharJump<CR>
