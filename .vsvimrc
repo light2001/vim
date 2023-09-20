@@ -24,13 +24,13 @@ endif
 nnoremap gi :vsc Edit.GoToImplementation<CR>
 map [[ :vsc Edit.PreviousMethod<CR>
 map ]] :vsc Edit.NextMethod<CR>
-map gr :vsc Edit.FindAllReferences<CR>
 map <Leader>k :vsc Window.PinTab<CR>
 noremap + :vsc Edit.CommentSelection <return>
 map - :vsc Edit.UncommentSelection <return>
 map <C-o> :vsc View.NavigateBackward<CR>
 map <C-i> :vsc View.NavigateForward<CR>
-nnoremap gf :vsc Edit.Find<CR>
+nnoremap gf :vsc Edit.FindInFiles<CR>
+nnoremap ga :vsc Edit.FindAllReferences<CR>
 set ignorecase
 " gS prefix is added for ViEmu, no use for VsVim AFAIK.
 "VsVim and ViEmu are disabled until PeasyMotion finishes
