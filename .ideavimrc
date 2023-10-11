@@ -13,7 +13,7 @@ set incsearch
 map Q gq
 set clipboard=unnamedplus,unnamed
 set ignorecase
-" set hlsearch
+set hlsearch
 inoremap jk <ESC>
 inoremap jj <ESC>
 " vnoremap jk <ESC>
@@ -34,6 +34,10 @@ nnoremap ga :action FindUsages<CR>
 :set keep-english-in-normal-and-restore-in-insert
 let mapleader="\<space>"
 set easymotion
+map <leader>j <Plug>(easymotion-j)
+map <leader>w <Plug>(easymotion-bd-w)
+map <leader>e <Plug>(easymotion-bd-e)
+map <leader>k <Plug>(easymotion-k)
 
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 "" Map \r to the Reformat Code action
