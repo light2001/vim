@@ -1,0 +1,130 @@
+# vscode settings.json 
+
+{
+    "editor.stickyScroll.enabled": true,
+    "vscode-neovim.neovimExecutablePaths.win32": "C:\\Software\\nvim-win64\\bin\\nvim.exe",
+    "vscode-neovim.neovimInitVimPaths.win32": "C:\\Users\\jarvis.li\\AppData\\Local\\nvim\\init.vim",
+    "workbench.colorTheme": "One Monokai",
+    "hediet.vscode-drawio.resizeImages": null,
+    "vscode-neovim.highlightGroups.highlights": {
+
+        "Directory": "vim",
+        "IncSearch": {
+            "backgroundColor": "theme.editor.findMatchBackground",
+            "borderColor": "theme.editor.findMatchBorder"
+        },
+        "Search": {
+            "backgroundColor": "theme.editor.findMatchHighlightBackground",
+            "borderColor": "theme.editor.findMatchHighlightBorder"
+        },
+        "Visual": {
+            "backgroundColor": "theme.editor.selectionBackground"
+        },
+        "Conceal": "vim",
+        "Substitute": "vim"
+    },
+    "redhat.telemetry.enabled": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j" , "k"],
+            "after" : ["<ESC>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+            "before": [";"],
+            "after":[":"]
+        },
+        {
+            "before": ["<leader>" , "w"],
+            "after":["<leader>", "<leader>", "w"]
+        },
+        {
+            "before": ["<leader>" , "b"],
+            "after":["<leader>", "<leader>" ,"b"]
+        },
+        {
+            "before": ["<leader>" , "s"],
+            "after":["<leader>", "<leader>","s"]
+        },
+        {
+            "before": ["<leader>" , "f"],
+            "after":["<leader>", "<leader>" ,"f"]
+        },
+        {
+            "before": ["g", "i"],
+            "commands": ["editor.action.goToImplementation"],
+            "silent": true
+        },
+        {
+            "before": ["g", "f"],
+            "commands": ["workbench.view.search"],
+            "silent": true
+        },
+        {
+            "before": ["g", "a"],
+            "commands": ["references-view.findReferences"],
+            "silent": true
+        }
+    ],
+    "vim.useSystemClipboard": true,
+    "vim.leader": "<space>",
+    "vim.useCtrlKeys": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "java.project.referencedLibraries": [],
+    "vim.vimrc.enable": true,
+    "mssql.connections": [
+        {
+            "server": "G2DISPSQL01",
+            "database": "SimplyPaid",
+            "authenticationType": "Integrated",
+            "profileName": "SimplyPaidDev",
+            "encrypt": "Mandatory",
+            "trustServerCertificate": true,
+            "user": "",
+            "password": "",
+            "connectTimeout": 15,
+            "commandTimeout": 30,
+            "applicationName": "vscode-mssql"
+        },
+        {
+            "server": "G2Q4SPSQL01",
+            "database": "SimplyPaid",
+            "authenticationType": "Integrated",
+            "profileName": "SimplyPaidQA4",
+            "encrypt": "Mandatory",
+            "trustServerCertificate": true,
+            "user": "",
+            "password": "",
+            "connectTimeout": 15,
+            "commandTimeout": 30,
+            "applicationName": "vscode-mssql"
+        },
+        {
+            "server": "G2Q3SPSQL01",
+            "database": "SimplyPaid",
+            "authenticationType": "Integrated",
+            "profileName": "SimplyPaidQA3",
+            "encrypt": "Mandatory",
+            "trustServerCertificate": true,
+            "user": "",
+            "password": "",
+            "connectTimeout": 15,
+            "commandTimeout": 30,
+            "applicationName": "vscode-mssql"
+        }
+    ],
+    "vim.easymotion": true,
+    "mssql.enableQueryHistoryCapture": false,
+    "mssql.objectExplorer.groupBySchema": true,
+    "[sql]": {
+        "editor.defaultFormatter": "adpyke.vscode-sql-formatter"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "vim.hlsearch": true
+}
