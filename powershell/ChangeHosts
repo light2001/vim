@@ -1,6 +1,6 @@
 using namespace System.Collections.Generic
 
-$fileList = Get-ChildItem | %{$_.FullName}
+$fileList = Get-ChildItem -Path .\hosts | %{$_.FullName}
 $distFilePath ="C:\windows\system32\drivers\etc\hosts"
 class File{
     [int] $id
