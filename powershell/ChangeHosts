@@ -1,0 +1,25 @@
+using namespace System.Collections.Generic
+
+$fileList = Get-ChildItem | %{$_.FullName}
+$distFilePath ="C:\windows\system32\drivers\etc\hosts"
+class File{
+    [int] $id
+    [string] $FilePath
+}
+$list = [List[File]]@()
+$index=1
+foreach($item in $fileList){
+    $file = New-Object File
+    $file.id=$index
+    $file.FilePath=$item
+    $list.Add($file)
+    $index++
+}
+Write-Host("filepath list:")
+foreach($item in $list)
+{
+    Write-Host("seq: ",$item.id,"    filepath: ",$item.FilePath)
+}
+$inputId = Read-Host("please input you will change path")
+$selectFile = $list.Where({$_.id -eq $inputId})
+Write-Host("you select filepath: ", $selectFile.FilePath)
