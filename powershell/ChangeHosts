@@ -1,25 +1,47 @@
 using namespace System.Collections.Generic
 
-$fileList = Get-ChildItem -Path .\hosts | %{$_.FullName}
-$distFilePath ="C:\windows\system32\drivers\etc\hosts"
-class File{
+$fileList = Get-ChildItem -Path .\Hosts -File -Recurse | % { $_.FullName }
+$distFilePath = "C:\windows\system32\drivers\etc\hosts"
+class File {
     [int] $id
     [string] $FilePath
 }
 $list = [List[File]]@()
-$index=1
-foreach($item in $fileList){
+$index = 1
+foreach ($item in $fileList) {
     $file = New-Object File
-    $file.id=$index
-    $file.FilePath=$item
+    $file.id = $index
+    $file.FilePath = $item
     $list.Add($file)
     $index++
 }
-Write-Host("filepath list:")
-foreach($item in $list)
-{
-    Write-Host("seq: ",$item.id,"    filepath: ",$item.FilePath)
+Write-Host("file path list:")
+foreach ($item in $list) {
+    Write-Host("seq: ", $item.id, "    filepath: ", $item.FilePath, "-->", $item.id)
 }
-$inputId = Read-Host("please input you will change path")
-$selectFile = $list.Where({$_.id -eq $inputId})
-Write-Host("you select filepath: ", $selectFile.FilePath)
+$inputId = Read-Host("please select you will change env file path sequence number")
+$selectFile = $list.Where({ $_.id -eq $inputId })
+if ($selectFile.id -eq $null) {
+    Write-Host("input error ,close")
+    Exit 1
+}
+Write-Host("you select env file path: 
+", $selectFile.filepath)
+$confirm = Read-Host ("Are you sure you want to switch this environment? y/n")
+if ($confirm -eq "y") {
+    Write-Host("start switch hosts
+    Source:", $selectFile.filepath,
+        "
+    Destnation:", $distFilePath)
+    try {
+        Copy-Item -Path $selectFile.filepath -Destination $distFilePath -Force
+        Write-Host("change env success")
+    }
+    catch {
+        Write-Host("change env failed. close")
+    }
+
+}
+else {
+    Write-Host ("give up change hosts")
+}
