@@ -54,3 +54,9 @@ nmap ze gS:vsc Tools.InvokePeasyMotionLineJumpToWordEnding<CR>
 
 "Two char search mode:
 "nmap ;c gS:vsc Tools.InvokePeasyMotionTwoCharJump<CR>
+
+
+nnoremap <Space>w gS:vsc Tools.InvokePeasyMotion<CR>
+nnoremap <Space>f gS:vsc Tools.InvokePeasyMotionOneCharJump<CR>
+
+" https://github.com/msomeone/PeasyMotion
